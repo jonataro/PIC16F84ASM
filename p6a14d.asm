@@ -6,7 +6,7 @@
 		__CONFIG   _CP_OFF &  _WDT_OFF & _PWRTE_ON & _XT_OSC		
 ;vectores de inicio e interupcion*****************************************************************
 		org		0x00
-    		goto    Inicio
+    		goto    	Inicio
 		org		0x04
    		goto		Tmr0Int
 ;definicion de constantes y variables*************************************************************
@@ -63,8 +63,8 @@ Tmr0Int		movwf 		WTemp		;Copia W a W_TEMP
 		goto		NDelay1		;then hemos hecho n delays
 		goto		NDelay0		;else todavia no hemos hecho n delays
 NDelay0		call		_n_10msec	;codigo que se ejecuta cada n x 10msec
-				movlw	NDelay	; vuelvo a recargar el valor Ndelay;=W
-				movwf	Counter	;reinicio el valor del indice contador:=W:=Ndelay
+		movlw		NDelay	; vuelvo a recargar el valor Ndelay;=W
+		movwf		Counter	;reinicio el valor del indice contador:=W:=Ndelay
 ;---limpieza contexto y retfie
 NDelay1		swapf		StaTemp,0	;Copia STATUS_TEMP a W con intercambio de nibbles
 		movwf		StaTemp 	;Restaura STATUS_TEMP a STATUS a través de W
@@ -118,9 +118,9 @@ ringbuf		movf		ind,0 		;carga el valor del indice en W
 		goto		decI
 reload		movlw		n8
 		movwf		ind
-				return	
+		return	
 decI		decfsz		ind		
-				return
+		return
 ;rutina que calcula media aritmetica del buffer de 8 muestras**************************************************************
 calcAvg		movf		n1,0   		;aux1=(n1+n2)/2     
             	addwf		n2,0
