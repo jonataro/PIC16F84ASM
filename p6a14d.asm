@@ -6,7 +6,7 @@
 		__CONFIG   _CP_OFF &  _WDT_OFF & _PWRTE_ON & _XT_OSC		
 ;vectores de inicio e interupcion*****************************************************************
 		org		0x00
-    	goto    Inicio
+    		goto    Inicio
 		org		0x04
    		goto		Tmr0Int
 ;definicion de constantes y variables*************************************************************
